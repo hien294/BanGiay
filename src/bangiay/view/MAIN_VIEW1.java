@@ -2773,7 +2773,41 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     }//GEN-LAST:event_rdo_nuKHActionPerformed
 
     private void btnSuaKhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaKhActionPerformed
-    
+        KhachHang khh = new KhachHang();
+        khh.setIdKhachHang(Integer.parseInt(lblIDKhachHang.getText()));
+        khh.setMaKhachHang(txt_maKh.getText());
+        khh.setTenKhachHang(txt_tenKH.getText());
+        khh.setSoDienThoai(txt_dienthoaiKH.getText());
+        khh.setEmail(txt_emailKH.getText());
+        khh.setDiaChi(txt_diachiKH.getText());
+        boolean gioiTinh;
+        if (rdo_namKH.isSelected()) {
+            gioiTinh = true;
+        } else {
+            gioiTinh = false;
+        }
+        khh.setGioiTinh(gioiTinh);
+        boolean trangThai;
+        if (rdoDangHoatDongKH.isSelected()) {
+            trangThai = true;
+        } else {
+            trangThai = false;
+        }
+        khh.setTrangThai(trangThai);
+
+        if (check()) {
+            int chon = JOptionPane.showConfirmDialog(this, "Bạn có muốn sửa khách hàng không");
+            if (chon == JOptionPane.YES_OPTION) {
+                khachHangService_IMPL.updateKhachHang(khh);
+                JOptionPane.showMessageDialog(this, "Sửa thành công");
+                fillTableKhachHang();
+            } else if (chon == JOptionPane.NO_OPTION) {
+                JOptionPane.showMessageDialog(this, "Bạn đã hủy thêm");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Sửa không thành công");
+        }
     }//GEN-LAST:event_btnSuaKhActionPerformed
 
     private void rdo_nu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_nu1ActionPerformed
