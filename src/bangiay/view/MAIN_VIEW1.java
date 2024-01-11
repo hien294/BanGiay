@@ -18,7 +18,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
 
     DefaultTableModel mol = new DefaultTableModel();
     KhachHangService_IMPL khachHangService_IMPL = new KhachHangService_IMPL();
-    String tenKH ;
+    String tenKH;
 
     public MAIN_VIEW1() {
         initComponents();
@@ -990,6 +990,11 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         jLabel5.setText("Mã khách hàng");
 
         txt_maKh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_maKh.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_maKhKeyPressed(evt);
+            }
+        });
 
         txt_tenKH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1092,14 +1097,6 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
                 .addGap(130, 130, 130)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addComponent(jLabel60)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rdoDangHoatDongKH)
-                        .addGap(24, 24, 24)
-                        .addComponent(rdoKhongHoatDongKH)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnDoiTrangThaiKH, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel23Layout.createSequentialGroup()
                         .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel23Layout.createSequentialGroup()
                                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1112,15 +1109,24 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
                             .addGroup(jPanel23Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(18, 18, 18)
-                                .addComponent(rdo_namKH, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76)
-                                .addComponent(rdo_nuKH, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(rdo_namKH, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnThemKh, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSuaKh, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNewKh, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnNewKh, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(jLabel60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rdoDangHoatDongKH)
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rdo_nuKH, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel23Layout.createSequentialGroup()
+                                .addComponent(rdoKhongHoatDongKH)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnDoiTrangThaiKH, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2767,7 +2773,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     }//GEN-LAST:event_rdo_nuKHActionPerformed
 
     private void btnSuaKhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaKhActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_btnSuaKhActionPerformed
 
     private void rdo_nu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_nu1ActionPerformed
@@ -2990,21 +2996,21 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         khh.setSoDienThoai(txt_dienthoaiKH.getText());
         khh.setEmail(txt_emailKH.getText());
         khh.setDiaChi(txt_diachiKH.getText());
-        boolean gioiTinh ;
+        boolean gioiTinh;
         if (rdo_namKH.isSelected()) {
             gioiTinh = true;
-        }else{
+        } else {
             gioiTinh = false;
         }
         khh.setGioiTinh(gioiTinh);
-        boolean trangThai ;
+        boolean trangThai;
         if (rdoDangHoatDongKH.isSelected()) {
             trangThai = true;
-        }else{
+        } else {
             trangThai = false;
         }
         khh.setTrangThai(trangThai);
-        
+
         if (check()) {
             int chon = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm khách hàng không");
             if (chon == JOptionPane.YES_OPTION) {
@@ -3023,7 +3029,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     private void btnTimKiemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemKHActionPerformed
         // TODO add your handling code here:
         String ten = txtTkiemKH.getText();
-         mol = (DefaultTableModel) tblBangKhachHang.getModel();
+        mol = (DefaultTableModel) tblBangKhachHang.getModel();
         mol.setRowCount(0);
         for (KhachHang k : khachHangService_IMPL.timTenKhachHang(tenKH)) {
             Object[] toData = new Object[]{
@@ -3032,6 +3038,10 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
             mol.addRow(toData);
         }
     }//GEN-LAST:event_btnTimKiemKHActionPerformed
+
+    private void txt_maKhKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_maKhKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_maKhKeyPressed
 
     /**
      * @param args the command line arguments
@@ -3078,32 +3088,33 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
             mol.addRow(toData);
         }
     }
-    private boolean check (){
+
+    private boolean check() {
         if (txt_maKh.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"Mã không được để trống ");
+            JOptionPane.showMessageDialog(this, "Mã không được để trống ");
             txt_maKh.requestFocus();
             return false;
-        }else if (txt_tenKH.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"Tên không được để trống ");
+        } else if (txt_tenKH.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Tên không được để trống ");
             txt_tenKH.requestFocus();
             return false;
-        }else if (txt_dienthoaiKH.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"Số diện thoại không được để trống ");
+        } else if (txt_dienthoaiKH.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Số diện thoại không được để trống ");
             txt_dienthoaiKH.requestFocus();
             return false;
-        }else if (txt_emailKH.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"Email không được để trống ");
+        } else if (txt_emailKH.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Email không được để trống ");
             txt_emailKH.requestFocus();
             return false;
-        }else if (txt_emailKH.getText().matches("")) {
-            JOptionPane.showMessageDialog(null,"^[A-Za-z0-9+_.-]+@(.+)$");
+        } else if (txt_emailKH.getText().matches("")) {
+            JOptionPane.showMessageDialog(null, "^[A-Za-z0-9+_.-]+@(.+)$");
             txt_emailKH.requestFocus();
             return false;
-        }else if (txt_diachiKH.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this,"Địa chỉ không được để trống ");
+        } else if (txt_diachiKH.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Địa chỉ không được để trống ");
             txt_diachiKH.requestFocus();
             return false;
-        }else{
+        } else {
             return true;
         }
     }
