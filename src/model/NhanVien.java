@@ -9,5 +9,5 @@ package model;
  * @author admin
  */
 public class NhanVien {
-    
+    String id;
 }
