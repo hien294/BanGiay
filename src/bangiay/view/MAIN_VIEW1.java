@@ -3065,7 +3065,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         String ten = txtTkiemKH.getText();
         mol = (DefaultTableModel) tblBangKhachHang.getModel();
         mol.setRowCount(0);
-        for (KhachHang k : khachHangService_IMPL.timTenKhachHang(tenKH)) {
+        for (KhachHang k : khachHangService_IMPL.timSodienThoai(ten)) {
             Object[] toData = new Object[]{
                 k.getIdKhachHang(), k.getMaKhachHang(), k.getTenKhachHang(), k.getSoDienThoai(), k.getEmail(), k.getDiaChi(), k.checkGioiTinh(), k.getTrangThai() ? "Đang hoạt động" : "Không hoạt động "
             };
