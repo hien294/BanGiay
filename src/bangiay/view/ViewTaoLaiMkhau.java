@@ -216,7 +216,10 @@ public class ViewTaoLaiMkhau extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-      new ViewDangNhap("").setVisible(true);
+      String email,chucvu;
+      email = "";
+      chucvu="";
+       new ViewDangNhap(email, chucvu).setVisible(true);
       this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
