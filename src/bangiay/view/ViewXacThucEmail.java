@@ -212,8 +212,7 @@ public class ViewXacThucEmail extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        
+
         code = randomcode();
         System.out.println(code);
         Properties props = new Properties();
@@ -245,13 +244,13 @@ public class ViewXacThucEmail extends javax.swing.JFrame {
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
             message.setSubject("Email xác nhận tài khoản ");
-            message.setText("đay là mã của bạn : "+code);
+            message.setText("đay là mã của bạn : " + code);
 
             // Gửi email
             Transport.send(message);
 
             System.out.println("Email sent successfully!");
-            JOptionPane.showMessageDialog(this, "đã gửi mã xác thực vào "+lbl_email.getText()+" vui lòng kiểm tra hộp thư" );
+            JOptionPane.showMessageDialog(this, "đã gửi mã xác thực vào " + lbl_email.getText() + " vui lòng kiểm tra hộp thư");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
@@ -261,18 +260,21 @@ public class ViewXacThucEmail extends javax.swing.JFrame {
         String codes = Integer.toString(code);
         System.out.println(codes);
         if (txt_code.getText().equals(codes)) {
-            JOptionPane.showMessageDialog(this, "EMAIL: "+lbl_email.getText()+"ĐÃ ĐƯỢC XÁC THỰC");
+            JOptionPane.showMessageDialog(this, "EMAIL: " + lbl_email.getText() + "ĐÃ ĐƯỢC XÁC THỰC");
             String emails = lbl_email.getText();
-            new ViewDangNhap(emails).setVisible(true);
-       this.dispose();
-        }else{
-        JOptionPane.showMessageDialog(null, "KHÔNG ĐÚNG CODE VUI LÒNG KIỂM TRA EMAIL");
+            String email, chucvu;
+            chucvu = "";
+            new ViewDangNhap(emails, chucvu).setVisible(true);
+            this.dispose();
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "KHÔNG ĐÚNG CODE VUI LÒNG KIỂM TRA EMAIL");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       new ViewTaoTkhoan().setVisible(true);
-       this.dispose();
+        new ViewTaoTkhoan().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -312,10 +314,10 @@ public class ViewXacThucEmail extends javax.swing.JFrame {
             }
         });
     }
-    
-   public static int randomcode() {
+
+    public static int randomcode() {
         Random random = new Random();
-        return random.nextInt(1000,9999); 
+        return random.nextInt(1000, 9999);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

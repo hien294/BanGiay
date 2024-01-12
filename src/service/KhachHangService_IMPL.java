@@ -138,15 +138,15 @@ public class KhachHangService_IMPL implements KhachHangService {
     }
 
     @Override
-    public List<KhachHang> timTenKhachHang(String tenKH) {
+    public List<KhachHang> timSodienThoai(String sdt) {
         Connection conn = DBConnect.getConnection();
         try {
             List<KhachHang> list = new ArrayList();
             String sql = """
-                         SELECT * FROM KHACHHANG WHERE HOTEN LIKE ?
+                         SELECT * FROM KHACHHANG WHERE SODIENTHOAI LIKE ?
                          """;
             PreparedStatement ptm = conn.prepareStatement(sql);
-            ptm.setString(1, "%" + tenKH + "%");
+            ptm.setString(1, "%" + sdt + "%");
             ResultSet rs = ptm.executeQuery();
             while (rs.next()) {
                 KhachHang kh = new KhachHang();
