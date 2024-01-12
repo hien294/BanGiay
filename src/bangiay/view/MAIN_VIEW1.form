@@ -956,7 +956,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="tblSanPham">
+                            <Component class="javax.swing.JTable" name="tblsanPhamBanHang">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="10" rowCount="4">
@@ -1032,7 +1032,7 @@
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSanPhamMouseClicked"/>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblsanPhamBanHangMouseClicked"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -3794,7 +3794,7 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtTensp" alignment="0" pref="333" max="32767" attributes="0"/>
                                           <Component id="txtMaSp" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblIDSanPham" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbidSp" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
@@ -3809,13 +3809,13 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jButton45" max="32767" attributes="0"/>
-                                                  <Component id="jButton44" pref="124" max="32767" attributes="0"/>
+                                                  <Component id="btnUpdateSanPham" max="32767" attributes="0"/>
+                                                  <Component id="btnAddSp" pref="124" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace pref="59" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jButton46" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
-                                                  <Component id="btndoiTT" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnDoiTTSanPham" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                           </Group>
@@ -3832,7 +3832,7 @@
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel57" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="lblIDSanPham" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="lbidSp" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
@@ -3848,13 +3848,13 @@
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jButton45" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                                      <Component id="btnUpdateSanPham" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                                       <Component id="jButton46" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jButton44" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                                      <Component id="btndoiTT" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                                      <Component id="btnAddSp" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                                      <Component id="btnDoiTTSanPham" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="btnxemct" min="-2" pref="38" max="-2" attributes="0"/>
@@ -3921,7 +3921,7 @@
                                 <Property name="text" type="java.lang.String" value="M&#xf4; t&#x1ea3;"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton44">
+                            <Component class="javax.swing.JButton" name="btnAddSp">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Segoe UI" size="14" style="1"/>
@@ -3936,8 +3936,11 @@
                                   </Border>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddSpActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton45">
+                            <Component class="javax.swing.JButton" name="btnUpdateSanPham">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Segoe UI" size="14" style="1"/>
@@ -3953,7 +3956,7 @@
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton45ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateSanPhamActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="jButton46">
@@ -4008,7 +4011,7 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="btndoiTT">
+                            <Component class="javax.swing.JButton" name="btnDoiTTSanPham">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Segoe UI" size="14" style="1"/>
@@ -4023,8 +4026,11 @@
                                   </Border>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoiTTSanPhamActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="lblIDSanPham">
+                            <Component class="javax.swing.JLabel" name="lbidSp">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="jLabel1"/>
                               </Properties>
@@ -4114,7 +4120,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable2">
+                                <Component class="javax.swing.JTable" name="tblSanPham">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="5" rowCount="4">
@@ -4158,6 +4164,9 @@
                                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSanPhamMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
