@@ -24,9 +24,11 @@ public class ViewDangNhap extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         setLocationRelativeTo(null);
+     
+
         txt_ussername.setText(email);
         
- 
+
 }
 
 /**
@@ -244,6 +246,9 @@ public class ViewDangNhap extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_passActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        // TODO add your handling code here:
+
         String username = txt_ussername.getText();
         String password = new String(txt_pass.getPassword());
 
@@ -255,6 +260,7 @@ public class ViewDangNhap extends javax.swing.JFrame {
             // Thực hiện các hành động cần thiết sau khi đăng nhập thất bại
         }
         
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -309,6 +315,8 @@ public class ViewDangNhap extends javax.swing.JFrame {
     }
 
     
+
+
      private boolean checkLogin(String username, String password) {
     boolean loginSuccessful = false;
     
@@ -340,8 +348,8 @@ public class ViewDangNhap extends javax.swing.JFrame {
     }
 
     return loginSuccessful;
-}
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
+}    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cb_show;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

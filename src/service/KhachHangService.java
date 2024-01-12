@@ -17,5 +17,5 @@ public interface KhachHangService {
 //    boolean deleteKhachHang(KhachHang kh);
     boolean updateKhachHang(KhachHang kh);
     boolean updateTrangThaiKhachHang(KhachHang kh);
-    List<KhachHang>timTenKhachHang(String tenKH);
+    List<KhachHang>timSodienThoai(String sdt);
 }

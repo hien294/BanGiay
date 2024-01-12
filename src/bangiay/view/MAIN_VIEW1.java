@@ -26,6 +26,11 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     String tenKH;
 
 
+   public MAIN_VIEW1() {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.setResizable(true); // true là được bấm phóng to màn hinh , còn false là không được phongs to màn hình 
+
     NhanVienService_IMPL nhanVienService_IMPL = new NhanVienService_IMPL();
 
 
@@ -3135,7 +3140,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         String ten = txtTkiemKH.getText();
         mol = (DefaultTableModel) tblBangKhachHang.getModel();
         mol.setRowCount(0);
-        for (KhachHang k : khachHangService_IMPL.timTenKhachHang(tenKH)) {
+        for (KhachHang k : khachHangService_IMPL.timSodienThoai(ten)) {
             Object[] toData = new Object[]{
                 k.getIdKhachHang(), k.getMaKhachHang(), k.getTenKhachHang(), k.getSoDienThoai(), k.getEmail(), k.getDiaChi(), k.checkGioiTinh(), k.getTrangThai() ? "Đang hoạt động" : "Không hoạt động "
             };
@@ -3207,9 +3212,13 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
+                 new MAIN_VIEW1().setVisible(true);
+
                 String manv ="";
                 String tennv = "";
                 new MAIN_VIEW1(manv,tennv).setVisible(true);
+
             }
         });
     }
@@ -3479,7 +3488,9 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     private javax.swing.JLabel lblIDSanPham;
     private javax.swing.JLabel lblIdKhuyenMai;
     private javax.swing.JLabel lblMaHoaDon;
-    private javax.swing.JLabel lbl_IDNV;
+
+    private javax.swing.JLabel lbl_chucvu;
+     private javax.swing.JLabel lbl_IDNV;
 
     private javax.swing.JLabel lbl_nameud;
     private javax.swing.JLabel lbl_ngay;
