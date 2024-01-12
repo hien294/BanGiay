@@ -245,7 +245,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
         jButton49 = new javax.swing.JButton();
         jButton50 = new javax.swing.JButton();
-        jButton51 = new javax.swing.JButton();
+        btnTimsp = new javax.swing.JButton();
         jLabel59 = new javax.swing.JLabel();
         viewkhuyenmai = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -2100,10 +2100,15 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         jButton50.setText(">>");
         jButton50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton51.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Search.png"))); // NOI18N
-        jButton51.setText("Tìm kiếm");
-        jButton51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnTimsp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTimsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Search.png"))); // NOI18N
+        btnTimsp.setText("Tìm kiếm");
+        btnTimsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnTimsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimspActionPerformed(evt);
+            }
+        });
 
         jLabel59.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel59.setText("Mã Sản Phẩm ");
@@ -2131,7 +2136,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addComponent(txtTimSp, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82)
-                        .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnTimsp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel34Layout.createSequentialGroup()
                 .addContainerGap()
@@ -2144,7 +2149,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTimSp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTimsp, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
@@ -3177,6 +3182,17 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         txtMota.setText(tblSanPham.getValueAt(index, 3).toString());
     }//GEN-LAST:event_tblSanPhamMouseClicked
 
+    private void btnTimspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimspActionPerformed
+        // TODO add your handling code here:
+        String tenSp = txtTimSp.getText();
+        mol = (DefaultTableModel)tblSanPham.getModel();
+        mol.setRowCount(0);
+        for (SanPham s : spd.TimSanPham(tenSp)) {
+            Object[] todata = new Object[]{s.getId(),s.getMaSp(),s.getTenSp(),s.getMoTa(),s.checkTrangThai()};
+            mol.addRow(todata);
+        }
+    }//GEN-LAST:event_btnTimspActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3283,6 +3299,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     private javax.swing.JButton btnSuaKh;
     private javax.swing.JButton btnThemKh;
     private javax.swing.JButton btnTimKiemKH;
+    private javax.swing.JButton btnTimsp;
     private javax.swing.JButton btnUpdateSanPham;
     private javax.swing.JButton btn_TK;
     private javax.swing.JButton btn_nexthoadon;
@@ -3348,7 +3365,6 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
-    private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
