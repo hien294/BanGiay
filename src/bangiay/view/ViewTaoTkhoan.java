@@ -254,9 +254,13 @@ public class ViewTaoTkhoan extends javax.swing.JFrame {
     }//GEN-LAST:event_CBPASS1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String email ="";
-        ViewDangNhap lg = new ViewDangNhap(email);
-       lg.setVisible(true);
+     
+       String email,chucvu;
+      email = "";
+      chucvu="";
+       new ViewDangNhap(email, chucvu).setVisible(true);
+      this.dispose();
+//       lg.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

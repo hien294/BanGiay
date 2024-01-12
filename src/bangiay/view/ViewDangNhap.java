@@ -10,19 +10,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import repository.DBConnect;
+import java.sql.Connection;
 
 /**
  *
  * @author nguye
  */
 public class ViewDangNhap extends javax.swing.JFrame {
-   public static String ma;
+   Connection conn = DBConnect.getConnection();
+    public static String ma;
     public static String ten;
-    public ViewDangNhap(String email) {
+    public ViewDangNhap(String email,String chucvu) {
         initComponents();
         this.setResizable(false);
         setLocationRelativeTo(null);
      
+
+        txt_ussername.setText(email);
+        
+
 }
 
 /**
@@ -240,8 +246,21 @@ public class ViewDangNhap extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_passActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
         // TODO add your handling code here:
-  
+
+        String username = txt_ussername.getText();
+        String password = new String(txt_pass.getPassword());
+
+        if (checkLogin(username, password)) {
+
+        } else {
+            // Đăng nhập thất bại
+            JOptionPane.showMessageDialog(this, "Đăng nhập thất bại. Tên đăng nhập hoặc mật khẩu không đúng.");
+            // Thực hiện các hành động cần thiết sau khi đăng nhập thất bại
+        }
+        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -286,15 +305,51 @@ public class ViewDangNhap extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            String email = "";
+           
             public void run() {
-                new ViewDangNhap(email).setVisible(true);
+                 String email = "";
+                 String chucvu = "";
+                new ViewDangNhap(email,chucvu).setVisible(true);
             }
         });
     }
 
     
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
+
+     private boolean checkLogin(String username, String password) {
+    boolean loginSuccessful = false;
+    
+    try {
+        String query = "SELECT MANV, TENNV, TENDANGNHAP, MATKHAU, TENCV FROM NHANVIEN JOIN\n"
+                + "CHUCVU ON NHANVIEN.IDCHUCVU = CHUCVU.IDCHUCVU \n"
+                + "WHERE TENDANGNHAP = ? and MATKHAU = ?";
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    // Lấy thông tin của người dùng đầu tiên
+                    String manv = resultSet.getString(1);
+                    String tennv = resultSet.getString(2);
+                    String tencv = resultSet.getString(5);
+                   System.out.println("Đăng nhập thành công, tên nhân viên " + tennv + " chức vụ " + tencv);
+                    new MAIN_VIEW1(tennv, tencv).setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+                    loginSuccessful = true;
+                }
+            }
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Đăng nhập thất bại. Đã xảy ra lỗi.");
+        e.printStackTrace();
+    }
+
+    return loginSuccessful;
+
+}    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cb_show;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
