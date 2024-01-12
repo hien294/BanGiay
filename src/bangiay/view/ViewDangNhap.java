@@ -22,9 +22,7 @@ public class ViewDangNhap extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         setLocationRelativeTo(null);
-        txt_email.setText(email);
-        
- 
+     
 }
 
 /**
@@ -49,7 +47,7 @@ public class ViewDangNhap extends javax.swing.JFrame {
         cb_show = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
+        txt_ussername = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
 
@@ -173,10 +171,10 @@ public class ViewDangNhap extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 400, -1));
 
-        txt_email.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txt_email.setBorder(null);
-        txt_email.setDisabledTextColor(new java.awt.Color(204, 255, 255));
-        jPanel1.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 300, 40));
+        txt_ussername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txt_ussername.setBorder(null);
+        txt_ussername.setDisabledTextColor(new java.awt.Color(204, 255, 255));
+        jPanel1.add(txt_ussername, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 300, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ANHLOGIN.png"))); // NOI18N
 
@@ -243,7 +241,7 @@ public class ViewDangNhap extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -295,6 +293,7 @@ public class ViewDangNhap extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cb_show;
     private javax.swing.JButton jButton3;
@@ -310,7 +309,7 @@ public class ViewDangNhap extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lbl_dangki;
     private javax.swing.JLabel lbl_quenmk;
-    private javax.swing.JTextField txt_email;
     private javax.swing.JPasswordField txt_pass;
+    private javax.swing.JTextField txt_ussername;
     // End of variables declaration//GEN-END:variables
 }

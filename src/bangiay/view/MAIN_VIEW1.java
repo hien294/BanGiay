@@ -20,11 +20,10 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     KhachHangService_IMPL khachHangService_IMPL = new KhachHangService_IMPL();
     String tenKH;
 
-    public MAIN_VIEW1() {
+   public MAIN_VIEW1() {
         initComponents();
         setLocationRelativeTo(null);
         this.setResizable(true); // true là được bấm phóng to màn hinh , còn false là không được phongs to màn hình 
-        fillTableKhachHang();
     }
 
     /**
@@ -49,7 +48,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         lbl_ngay = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lbl_chucvu = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -331,7 +330,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Chức vụ :");
 
-        jLabel17.setText("jLabel17");
+        lbl_chucvu.setText("jLabel17");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -343,7 +342,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_chucvu, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,7 +363,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_chucvu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -3107,7 +3106,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MAIN_VIEW1().setVisible(true);
+                 new MAIN_VIEW1().setVisible(true);
             }
         });
     }
@@ -3241,7 +3240,6 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -3344,6 +3342,7 @@ public class MAIN_VIEW1 extends javax.swing.JFrame {
     private javax.swing.JLabel lblIDSanPham;
     private javax.swing.JLabel lblIdKhuyenMai;
     private javax.swing.JLabel lblMaHoaDon;
+    private javax.swing.JLabel lbl_chucvu;
     private javax.swing.JLabel lbl_nameud;
     private javax.swing.JLabel lbl_ngay;
     private javax.swing.JLabel lbl_sotrangsp;
